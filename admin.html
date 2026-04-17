@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard do ADM</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<div class="container">
+    <main class="content">
+
+        <header class="topbar">
+            <h1>Dashboard do ADM</h1>
+
+            <div class="actions">
+                <button id="btnNovaTarefa">+ Nova Tarefa</button>
+                <button id="logout">Deslogar</button>
+            </div>
+        </header>
+
+        <div class="grid">
+
+            <section class="card">
+                <h2>Usuários cadastrados</h2>
+
+                <div id="loadingUsuarios" class="loading">
+                    <div class="skeleton"></div>
+                    <div class="skeleton"></div>
+                </div>
+
+                <ul id="listaUsuarios"></ul>
+
+                <div id="emptyUsuarios" class="empty hidden">
+                    Nenhum usuário cadastrado
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>Tarefas cadastradas</h2>
+
+                <div id="loading" class="loading">
+                    <div class="skeleton"></div>
+                    <div class="skeleton"></div>
+                    <div class="skeleton"></div>
+                </div>
+
+                <div id="listaTarefas" class="tarefas"></div>
+
+                <div id="emptyState" class="empty hidden">
+                    Nenhuma tarefa cadastrada ainda
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+</div>
+
+<div class="modal" id="modalTarefa">
+    <div class="modal-content">
+
+        <h2>Nova Tarefa</h2>
+
+        <form id="tarefaForm">
+
+            <div class="field">
+                <label>Professor</label>
+                <input type="text" id="professor" required>
+            </div>
+
+            <div class="field">
+                <label>Disciplina</label>
+                <input type="text" id="disciplina" required>
+            </div>
+
+            <div class="row">
+                <div class="field">
+                    <label>Data limite</label>
+                    <input type="date" id="data" required>
+                </div>
+
+                <div class="field">
+                    <label>Hora limite</label>
+                    <input type="time" id="hora" required>
+                </div>
+            </div>
+
+            <div class="field">
+                <label>Localização</label>
+                <input type="text" id="localizacao" required>
+            </div>
+
+            <div class="field">
+                <label>Descrição</label>
+                <textarea id="descricao" required></textarea>
+            </div>
+
+            <div class="modal-actions">
+                <button type="submit">Salvar</button>
+                <button type="button" id="fecharModal">Cancelar</button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+<div class="modal" id="modalConfirm">
+    <div class="modal-content small">
+        <h3>Confirmar exclusão?</h3>
+        <p>Essa ação não pode ser desfeita.</p>
+
+        <div class="modal-actions">
+            <button id="confirmDelete" class="danger">Excluir</button>
+            <button id="cancelDelete">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modalEntregas">
+    <div class="modal-content large">
+        <div class="modal-header">
+            <h2>Entregas da tarefa</h2>
+            <button id="fecharEntregas">✕</button>
+        </div>
+
+        <div id="listaEntregas" class="lista-entregas"></div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/client.js"></script>
+<script src="js/admin.js"></script>
+
+</body>
+</html>

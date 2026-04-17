@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarefas escolares</title>
+    <link rel="stylesheet" href="css/user.css">
+</head>
+<body>
+
+<div class="container">
+
+    <header class="topbar">
+        <div class="user-info">
+            <div class="avatar"></div>
+            <span id="userName">Carregando...</span>
+        </div>
+
+        <button id="logout">Deslogar</button>
+    </header>
+
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Pesquisar por disciplina ou código...">
+    </div>
+
+    <main class="content">
+        <section class="tasks" id="listaTarefas"></section>
+    </main>
+
+</div>
+
+<div class="modal" id="modalUpload">
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <h2>Enviar atividade</h2>
+            <button class="close-btn" id="fecharModal">✕</button>
+        </div>
+
+        <p id="taskInfo" class="task-info"></p>
+
+        <form id="uploadForm">
+
+            <div class="field">
+                <label>Descrição</label>
+                <textarea id="descricaoEntrega" required></textarea>
+            </div>
+
+            <div class="field">
+                <label>Arquivo</label>
+                <input type="file" id="arquivo" required>
+            </div>
+
+            <div class="modal-actions">
+                <button type="submit">Enviar</button>
+                <button type="button" id="cancelarBtn">Cancelar</button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/client.js"></script>
+<script src="js/user.js"></script>
+
+</body>
+</html>
