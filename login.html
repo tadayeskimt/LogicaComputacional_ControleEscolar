@@ -18,8 +18,16 @@
                 <h2>Entrar</h2>
 
                 <form onsubmit="login(event)">
+                    
                     <input type="email" id="loginEmail" placeholder="Email" required>
-                    <input type="password" id="loginPassword" placeholder="Senha" required>
+
+                    <div class="password-box">
+                        <input type="password" id="loginPassword" placeholder="Senha" required>
+                        <span class="toggle" onclick="togglePassword('loginPassword', this)">
+                            <img src="https://iili.io/BUQiEQa.png">
+                        </span>
+                    </div>
+
                     <button type="submit" id="loginBtn">Entrar</button>
                 </form>
 
@@ -33,7 +41,21 @@
                 <form onsubmit="register(event)">
                     <input type="text" id="registerName" placeholder="Nome" required>
                     <input type="email" id="registerEmail" placeholder="Email" required>
-                    <input type="password" id="registerPassword" placeholder="Senha" required>
+
+                    <div class="password-box">
+                        <input type="password" id="registerPassword" placeholder="Senha" required>
+                        <span class="toggle" onclick="togglePassword('registerPassword', this)">
+                            <img src="https://iili.io/BUQiEQa.png">
+                        </span>
+                    </div>
+
+                    <div class="password-box">
+                        <input type="password" id="registerPasswordConfirm" placeholder="Repetir senha" required>
+                        <span class="toggle" onclick="togglePassword('registerPasswordConfirm', this)">
+                            <img src="https://iili.io/BUQiEQa.png">
+                        </span>
+                    </div>
+
                     <button type="submit" id="registerBtn">Cadastrar</button>
                 </form>
 
@@ -49,6 +71,19 @@
     <script>
         function toggle() {
             document.getElementById("box").classList.toggle("active");
+        }
+
+        function togglePassword(id, el) {
+            const input = document.getElementById(id);
+            const img = el.querySelector("img");
+
+            if (input.type === "password") {
+                input.type = "text";
+                img.src = "https://iili.io/BUQPFHP.png";
+            } else {
+                input.type = "password";
+                img.src = "https://iili.io/BUQiEQa.png"; 
+            }
         }
     </script>
 
